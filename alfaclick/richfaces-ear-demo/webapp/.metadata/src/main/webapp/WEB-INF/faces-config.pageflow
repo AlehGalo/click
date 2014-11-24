@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14158336932540" configfile="/webapp/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf14162211196760" outlinks="pf14162211196761 pf14162211196762 pf14162211196763 pf14162211196764 pf14162211196765 pf14162211196766 pf14162211196767" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/testCookie.xhtml" id="pf14162211196768" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14162211196761" path="/pages/testCookie.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/dashboard.xhtml" id="pf14162211196769" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14162211196762" path="/pages/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="page2" id="pf141622111967610" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14162211196763" path="/page2.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="index1.xhtml" id="pf141622111967611" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14162211196764" path="/index1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="mainView.xhtml" id="pf141622111967612" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14162211196765" path="/mainView.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jquery_widget.xhtml" id="pf141622111967613" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14162211196766" path="/jquery_widget.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="jquery_view_widget.xhtml" id="pf141622111967614" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14162211196767" path="/jquery_view_widget.xhtml"/>
+  <links id="pf14162211196761" target="pf14162211196768" source="pf14162211196760" outcome="verify_cookie" redirect="true"/>
+  <links id="pf14162211196762" target="pf14162211196769" source="pf14162211196760" outcome="dashboard" redirect="true"/>
+  <links id="pf14162211196763" target="pf141622111967610" source="pf14162211196760" outcome="page2"/>
+  <links id="pf14162211196764" target="pf141622111967611" source="pf14162211196760" outcome="index1"/>
+  <links id="pf14162211196765" target="pf141622111967612" source="pf14162211196760" outcome="mainView"/>
+  <links id="pf14162211196766" target="pf141622111967613" source="pf14162211196760" outcome="jqueryDashboard"/>
+  <links id="pf14162211196767" target="pf141622111967614" source="pf14162211196760" outcome="report"/>
+</pageflow:Pageflow>

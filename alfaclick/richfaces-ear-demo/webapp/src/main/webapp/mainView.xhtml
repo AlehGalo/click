@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:alfa="http://alfaclick.ru/facelets">
+	<head>
+<a4j:loadScript src="jquery-ui-1.8.24/ui/minified/jquery-ui.min.js" />
+<a4j:loadScript src="libs/flotr2/flotr2.js" />
+<a4j:loadScript src="libs/jquery-sDashboard.js" />
+<a4j:loadStyle src="css/sDashboard.css" />
+
+<script type="text/javascript">
+	jQuery(function() {
+		var dashboardJSON = [
+<ui:repeat var="widget" value="#{widgetService.widgetList}">
+{
+	widgetTitle : "#{widget.label}",
+	widgetId : "#{widget.widgetid}",
+	enableRefresh : false,
+	widgetContent : 'B'
+},
+</ui:repeat>
+				];
+		jQuery("#myDashboard").sDashboard({
+			dashboardData : dashboardJSON
+		});
+		jQuery("#myDashboard").bind("sdashboardwidgetmaximized", function(e,data) {debugger;
+			 console.log("maximized");
+		});
+		jQuery("#myDashboard").bind("sdashboardorderchanged", function(e, data) {
+		    console.log(data.sortedDefinitions);
+		});
+	});
+</script>
+	</head>
+	<body style="background-color: gray;">
+		<!-- 			<alfa:widgetPanel inputFields="#{widget.params.param}"> -->
+		<!-- 			<ui:param name="inputFields" value="#{widget.params.param}"></ui:param> -->
+		<!-- <ui:include src="/pages/widgetForm.xhtml">
+			<ui:param name="inputFields" value="#{widget.params.param}"></ui:param>
+		</ui:include> -->
+		<hr />
+		<ui:repeat var="widget" value="#{widgetService.widgetList}"
+			varStatus="status">
+			<ul id="myDashboard">
+				<ui:include src="/pages/widgetForm.xhtml">
+					<ui:param name="inputFields" value="#{widget.params.param}"></ui:param>
+				</ui:include>
+			</ul>
+		</ui:repeat>
+	</body>
+</ui:composition>

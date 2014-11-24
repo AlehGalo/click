@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core">
+<ui:fragment>
+	<c:forEach items="${helloWorld.widgetsList}" var="item">
+		<div id="${item.widgetid}">
+			<c:out value="${item.label}"></c:out>
+			<br />
+			<c:forEach items="${item.params.param}" var="paramet">
+				<label for="${paramet.paramid}">${paramet.label}</label>
+				<c:if test="${paramet.type == 'STRING'}">
+					<input type="text" id="${paramet.paramid}"
+						value="${paramet.default}" title="${paramet.hint}" />
+				</c:if>
+				<c:if test="${paramet.type == 'DATE'}">
+					<input type="date" pattern="dd.MM.yyyy" id="${paramet.paramid}"
+						value="${paramet.default}" title="${paramet.hint}" />
+				</c:if>
+				<c:if test="${paramet.type == 'AMOUNT'}">
+					<input type="number" id="${paramet.paramid}"
+						value="${paramet.default}" title="${paramet.hint}" />
+				</c:if>
+				<c:if test="${paramet.type == 'SELECT'}">
+					<select id="${paramet.paramid}" title="${paramet.hint}">
+						<c:forEach items="${paramet.selectItems.item}" var="selItem">
+							<option>${selItem}</option>
+						</c:forEach>
+					</select>
+				</c:if>
+			</c:forEach>
+		</div>
+		<br />
+	</c:forEach>
+</ui:fragment>
+</html>

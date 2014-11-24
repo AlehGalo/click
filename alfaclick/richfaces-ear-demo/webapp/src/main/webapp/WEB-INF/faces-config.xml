@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+<faces-config>
+
+	<!-- <lifecycle> <phase-listener>nl.amis.jsf.ResourceServerPhaseListener</phase-listener> 
+		</lifecycle> -->
+
+	<component>
+		<component-type>com.alfa.click.component.UIWidgetPanelComponent</component-type>
+		<component-class>com.alfa.click.component.WidgetPanelComponent</component-class>
+		<property>
+			<property-name>mode</property-name>
+			<property-class>java.lang.String</property-class>
+			<default-value>SIMPLE</default-value>
+			<property-extension>
+				<property-metadata>
+					<preferred>true</preferred>
+					<attribute-values>SIMPLE FULL</attribute-values>
+				</property-metadata>
+			</property-extension>
+		</property>
+		<property>
+			<property-name>widget</property-name>
+			<property-class>com.alfa.click.webservice.server.Widget</property-class>
+		</property>
+	</component>
+
+	<!-- <render-kit> <renderer> <component-family>nl.amis.Shuffler</component-family> 
+		<renderer-type>nl.amis.jsf.ShufflerRenderer</renderer-type> <renderer-class>nl.amis.jsf.shuffler.ShufflerRenderer</renderer-class> 
+		</renderer> </render-kit> -->
+
+
+
+	<application>
+		<message-bundle>ValidationMessages</message-bundle>
+	</application>
+	<managed-bean>
+		<managed-bean-name>webService</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WebServiceFacade</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>widgetService</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WidgetService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>webService</property-name>
+			<value>#{webService}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>widgetView</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WidgetController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>widgetService</property-name>
+			<value>#{widgetService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>widgetId</property-name>
+			<value>#{param.widgetId}</value>
+		</managed-property>
+	</managed-bean>
+	<!-- <application> <message-bundle> <base-name>com.mycompany.messages</base-name> 
+		<var>messages</var> </message-bundle> </application> -->
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>verify_cookie</from-outcome>
+			<to-view-id>/pages/testCookie.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>dashboard</from-outcome>
+			<to-view-id>/pages/dashboard.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>page2</from-outcome>
+			<to-view-id>/page2.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>index1</from-outcome>
+			<to-view-id>/index1.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>mainView</from-outcome>
+			<to-view-id>/mainView.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>jqueryDashboard</from-outcome>
+			<to-view-id>/jquery_widget.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>report</from-outcome>
+			<to-view-id>/jquery_view_widget.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

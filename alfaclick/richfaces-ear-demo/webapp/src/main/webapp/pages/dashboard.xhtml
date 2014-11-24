@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<!--[if IE]>
+	<script language="javascript" type="text/javascript" src="libs/flotr2/flotr2.ie.min.js"></script>
+<![endif]-->
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%> -->
+
+<a4j:loadScript src="libs/jquery/jquery-1.8.2.js" />
+<a4j:loadScript src="libs/jquery/jquery-ui.js" />
+<a4j:loadScript src="libs/jquery-sDashboard.js" />
+<a4j:loadStyle src="css/sDashboard.css" />
+<h:head>
+	<script type="text/javascript">
+	// <![CDATA[
+	$(function() {
+		var dashboardJSON = [
+				<c:forEach items="${widgetService.widgetList}" var="item">
+				{
+					widgetTitle : "${item.label}",
+					widgetId : "${item.widgetid}",
+					enableRefresh : false,
+					refreshCallBack : function(widgetId) {
+						return randomString + new Date();
+					},
+					widgetContent :'
+						<ui:include src="WEB-INF/pages/widgetForm.xhtml">
+							<ui:param name="iterableItems" value="#{item}"></ui:param>
+							<ui:param name="mode" value="SIMPLE"></ui:param>
+						</ui:include>'
+				},</c:forEach>
+				];
+		$("#alfaDashboard").sDashboard({
+			dashboardData : dashboardJSON
+		});
+		
+		$("#alfaDashboard").bind("sdashboardwidgetmaximized", function(e,data) {
+			 console.log("maximized");
+		});
+		$("#alfaDashboard").bind("sdashboardorderchanged", function(e, data) {
+		    console.log(data.sortedDefinitions);
+		});
+	});
+	 // ]]>
+</script>
+</h:head>
+<h:body style="background-color: gray;">
+	<hr />
+	<ul id="alfaDashboard"></ul>
+</h:body>
+</html>
