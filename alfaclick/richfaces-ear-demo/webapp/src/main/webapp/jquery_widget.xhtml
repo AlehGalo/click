@@ -91,20 +91,22 @@
 </script>
 </head>
 <body style="background-color: gray">
-	<div class="demo">
-		<ui:repeat var="widget" value="#{widgetService.widgetList}">
-			<div class="column">
-				<div class="portlet">
-					<div class="portlet-header" id="#{widget.widgetid}">#{widget.label}</div>
-					<div class="portlet-content">
-						<alfa:widget widget="#{widget}" mode="SIMPLE" />
-						<a4j:commandLink target="windowName"
-							onclick="window.open('jquery_view_widget.jsf?widgetId=#{widget.widgetid}','myWindowName');"
-							value="Отчёт" />
+	<f:view>
+		<div class="demo">
+			<ui:repeat var="widget" value="#{widgetService.widgetList}">
+				<div class="column">
+					<div class="portlet">
+						<div class="portlet-header" id="#{widget.widgetid}">#{widget.label}</div>
+						<div class="portlet-content">
+							<alfa:widget mode="SIMPLE" />
+							<a4j:commandLink target="windowName"
+								onclick="window.open('jquery_view_widget.jsf?widgetId=#{widget.widgetid}','myWindowName');"
+								value="Отчёт" />
+						</div>
 					</div>
 				</div>
-			</div>
-		</ui:repeat>
-	</div>
+			</ui:repeat>
+		</div>
+	</f:view>
 </body>
 </html>

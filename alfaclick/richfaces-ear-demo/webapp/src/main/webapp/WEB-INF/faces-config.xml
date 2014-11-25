@@ -1,7 +1,9 @@
-<?xml version="1.0"?>
-<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
-                              "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
-<faces-config>
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
 
 	<!-- <lifecycle> <phase-listener>nl.amis.jsf.ResourceServerPhaseListener</phase-listener> 
 		</lifecycle> -->
@@ -9,32 +11,60 @@
 	<component>
 		<component-type>com.alfa.click.component.UIWidgetPanelComponent</component-type>
 		<component-class>com.alfa.click.component.WidgetPanelComponent</component-class>
+		<!-- <property> <property-name>mode</property-name> <property-class>java.lang.String</property-class> 
+			<default-value>SIMPLE</default-value> <property-extension> <property-metadata> 
+			<preferred>true</preferred> <attribute-values>SIMPLE FULL</attribute-values> 
+			</property-metadata> </property-extension> </property> <property> <property-name>widget</property-name> 
+			<property-class>com.alfa.click.webservice.server.Widget</property-class> 
+			</property> -->
+	</component>
+	<component>
+		<component-type>Form</component-type>
+		<component-class>com.alfa.click.tag.components.FormComponent</component-class>
 		<property>
+			<description>
+				Mode
+			</description>
 			<property-name>mode</property-name>
-			<property-class>java.lang.String</property-class>
-			<default-value>SIMPLE</default-value>
-			<property-extension>
-				<property-metadata>
-					<preferred>true</preferred>
-					<attribute-values>SIMPLE FULL</attribute-values>
-				</property-metadata>
-			</property-extension>
+			<property-class>com.alfa.click.webservice.server.ModeType</property-class>
 		</property>
-		<property>
-			<property-name>widget</property-name>
-			<property-class>com.alfa.click.webservice.server.Widget</property-class>
-		</property>
+		<component-extension>
+			<component-family>Form</component-family>
+			<renderer-type>FormString</renderer-type>
+		</component-extension>
 	</component>
 
 	<!-- <render-kit> <renderer> <component-family>nl.amis.Shuffler</component-family> 
 		<renderer-type>nl.amis.jsf.ShufflerRenderer</renderer-type> <renderer-class>nl.amis.jsf.shuffler.ShufflerRenderer</renderer-class> 
 		</renderer> </render-kit> -->
 
+	<render-kit>
+
+		<renderer>
+			<description>
+        Renderer for a components.components.MapComponent component.
+      </description>
+			<component-family>Form</component-family>
+			<renderer-type>FormString</renderer-type>
+			<renderer-class>com.alfa.click.tag.renderers.FormRenderer</renderer-class>
+
+			<!-- <attribute> <description> CSS style class to use when rendering this 
+				component. </description> <attribute-name>styleClass</attribute-name> <attribute-class>java.lang.String</attribute-class> 
+				</attribute> -->
+		</renderer>
+	</render-kit>
+
 
 
 	<application>
 		<message-bundle>ValidationMessages</message-bundle>
+		<message-bundle>resources.application</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
 	</application>
+
+
 	<managed-bean>
 		<managed-bean-name>webService</managed-bean-name>
 		<managed-bean-class>com.alfa.click.service.WebServiceFacade</managed-bean-class>
@@ -62,14 +92,13 @@
 			<value>#{param.widgetId}</value>
 		</managed-property>
 	</managed-bean>
+	<application>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+	</application>
+
 	<!-- <application> <message-bundle> <base-name>com.mycompany.messages</base-name> 
 		<var>messages</var> </message-bundle> </application> -->
 	<navigation-rule>
-		<navigation-case>
-			<from-outcome>verify_cookie</from-outcome>
-			<to-view-id>/pages/testCookie.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
 		<navigation-case>
 			<from-outcome>dashboard</from-outcome>
 			<to-view-id>/pages/dashboard.xhtml</to-view-id>

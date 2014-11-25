@@ -1,128 +1,110 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.richfaces.samples</groupId>
-    <artifactId>richfaces-ear-demo</artifactId>
-    <name>JSF 1.2/Jee5 enterprise application demo</name>
-    <packaging>pom</packaging>
-    <version>3.3.4.Final</version>
-    <modules>
-        <module>ejb</module>
-        <module>webapp</module>
-        <module>richfacesEAR</module>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.richfaces.samples</groupId>
+	<artifactId>richfaces-ear-demo</artifactId>
+	<name>JSF 1.2/Jee5 enterprise application demo</name>
+	<packaging>pom</packaging>
+	<version>3.3.4.Final</version>
+	<modules>
+		<module>ejb</module>
+		<module>webapp</module>
+		<module>richfacesEAR</module>
 		<module>ws-server</module>
-    </modules>
-    <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav</artifactId>
-                <version>1.0-beta-2</version>
-            </extension>
-            <extension>
-                <groupId>postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>8.2-504.jdbc3</version>
-            </extension>
-        </extensions>
-        <pluginManagement>
-            <plugins>
-                <!--  <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-jar-plugin</artifactId>
-                      <version>2.1</version>
-                      <configuration>
-                          <archive>
-                              <index>true</index>
-                              <manifest>
-                                  <addDefaultSpecificationEntries>
-                                      true
-                                  </addDefaultSpecificationEntries>
-                                  <addDefaultImplementationEntries>
-                                      true
-                                  </addDefaultImplementationEntries>
-                              </manifest>
-                              <manifestEntries>
-                                  <mode>development</mode>
-                                  <Build-Number>
-                                      ${buildNumber}
-                                  </Build-Number>
-                              </manifestEntries>
-                          </archive>
-                      </configuration>
-                  </plugin>-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.4.2</version>
-                    <configuration>
-                        <systemProperties>
-                            <property>
-                                <name>org.ajax4jsf.test.checkXHTML</name>
-                                <value>true</value>
-                            </property>
-                        </systemProperties>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <inherited>true</inherited>
-                    <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-    <repositories>
-        <repository>
-            <releases/>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>maven-repository.dev.java.net</id>
-            <name>Java.net Repository for Maven</name>
-            <url>http://download.java.net/maven/1</url>
-            <layout>legacy</layout>
-        </repository>
-        <repository>
-            <releases/>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>maven2-repository.dev.java.net</id>
-            <name>Java.net Repository for Maven</name>
-            <url>http://download.java.net/maven/2/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases/>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>repository.jboss.org</id>
-            <url>http://repository.jboss.org/maven2</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>atlassian-m2-repository</id>
-            <name>Atlassian Maven 2.x Repository</name>
-            <url>http://repository.atlassian.com/maven2</url>
-        </pluginRepository>
-    </pluginRepositories>
-    <developers>
-        <developer>
-            <id>aleh</id>
-            <name>Aleh Bahatyrou</name>
-            <email>galo1@tut.by</email>
-            <roles>
-                <role>lead</role>
-            </roles>
-        </developer>
-    </developers>
+	</modules>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav</artifactId>
+				<version>1.0-beta-2</version>
+			</extension>
+			<extension>
+				<groupId>postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>8.2-504.jdbc3</version>
+			</extension>
+		</extensions>
+		<pluginManagement>
+			<plugins>
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
+					<version>2.1</version> <configuration> <archive> <index>true</index> <manifest> 
+					<addDefaultSpecificationEntries> true </addDefaultSpecificationEntries> <addDefaultImplementationEntries> 
+					true </addDefaultImplementationEntries> </manifest> <manifestEntries> <mode>development</mode> 
+					<Build-Number> ${buildNumber} </Build-Number> </manifestEntries> </archive> 
+					</configuration> </plugin> -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.4.2</version>
+					<configuration>
+						<systemProperties>
+							<property>
+								<name>org.ajax4jsf.test.checkXHTML</name>
+								<value>true</value>
+							</property>
+						</systemProperties>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<inherited>true</inherited>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<repositories>
+		<repository>
+			<releases />
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<id>maven-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/1</url>
+			<layout>legacy</layout>
+		</repository>
+		<repository>
+			<releases />
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<releases />
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<id>repository.jboss.org</id>
+			<url>http://repository.jboss.org/maven2</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>atlassian-m2-repository</id>
+			<name>Atlassian Maven 2.x Repository</name>
+			<url>http://repository.atlassian.com/maven2</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<developers>
+		<developer>
+			<id>aleh</id>
+			<name>Aleh Bahatyrou</name>
+			<email>galo1@tut.by</email>
+			<roles>
+				<role>lead</role>
+			</roles>
+		</developer>
+	</developers>
 </project>
