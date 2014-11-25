@@ -10,6 +10,7 @@
         <module>ejb</module>
         <module>webapp</module>
         <module>richfacesEAR</module>
+		<module>ws-server</module>
     </modules>
     <build>
         <extensions>
