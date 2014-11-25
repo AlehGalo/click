@@ -3,6 +3,7 @@
  */
 package com.alfa.click.webservice.server;
 
+import java.io.InputStream;
 import java.util.Date;
 
 import javax.jws.WebService;
@@ -24,8 +25,13 @@ public class WidgetService implements IWidgetService {
 	@Override
 	public Widgets getWidgets() {
 		System.out.println(">> getWidgets called " + new Date());
-		return JAXB.unmarshal(getClass().getResource(JNDIConstants.SAMPLE_FILE_LOCATION),
-				Widgets.class);
+		InputStream stream = WidgetService.class
+				.getResourceAsStream(JNDIConstants.SAMPLE_FILE_LOCATION);
+		if (stream == null) {
+			System.out.println("Resource was not found "
+					+ JNDIConstants.SAMPLE_FILE_LOCATION);
+			return new Widgets();
+		}
+		return JAXB.unmarshal(stream, Widgets.class);
 	}
-
 }

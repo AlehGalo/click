@@ -56,14 +56,14 @@
 
 
 
-	<application>
+<!-- 	<application>
 		<message-bundle>ValidationMessages</message-bundle>
 		<message-bundle>resources.application</message-bundle>
 		<locale-config>
 			<default-locale>en</default-locale>
 		</locale-config>
 	</application>
-
+ -->
 
 	<managed-bean>
 		<managed-bean-name>webService</managed-bean-name>
