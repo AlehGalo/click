@@ -123,12 +123,11 @@
                             </h:panelGroup>
                         </f:facet>
                         <a4j:form ajaxSubmit="true">
-                            <ui:repeat var="paramet" value="#{inputFields}">
-				<span class="module-full"> <ui:repeat var="parametVar1" value="#{widget.params.param}">
-                    <alfa:widgetField paramet="#{parametVar1}"></alfa:widgetField>
-                </ui:repeat>
-				</span>
-                            </ui:repeat>
+                                <span class="module-full">
+                                    <ui:repeat var="parametVar1" value="#{widget.params.param}">
+                                        <alfa:widgetField paramet="#{parametVar1}"></alfa:widgetField>
+                                    </ui:repeat>
+                                </span>
                             <h:commandButton value="Сохранить данные"/>
                         </a4j:form>
                     </rich:modalPanel>
