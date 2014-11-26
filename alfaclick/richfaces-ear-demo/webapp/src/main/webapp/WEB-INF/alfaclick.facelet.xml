@@ -5,13 +5,11 @@
 <facelet-taglib>
 	<namespace>http://alfaclick.ru/facelets</namespace>
 	<tag>
-		<tag-name>widgetPanel</tag-name>
-		<source>/WEB-INF/tags/widget.xhtml</source>
+		<tag-name>widgetField</tag-name>
+		<source>tags/widgetField.xhtml</source>
 	</tag>
-	<tag>
-		<tag-name>widgetTest</tag-name>
-		<component>
-			<component-type>com.alfa.click.component.WidgetPanelComponent</component-type>
-		</component>
-	</tag>
+    <tag>
+        <tag-name>widget</tag-name>
+        <source>tags/widget.xhtml</source>
+    </tag>
 </facelet-taglib>

@@ -1,112 +1,145 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:rich="http://richfaces.org/rich"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:alfa="/WEB-INF/alfaclick.tld">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:alfa="http://alfaclick.ru/facelets">
 <head>
-<title>Alfa</title>
-<a4j:loadStyle src="jquery-ui-1.8.24/themes/base/jquery.ui.all.css"></a4j:loadStyle>
-<a4j:loadStyle src="jquery-ui-1.8.24/demos/demos.css"></a4j:loadStyle>
-<a4j:loadScript src="resource:///jquery.js" />
-<a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.core.js" />
-<a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.widget.js" />
-<a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.mouse.js" />
-<a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.sortable.js" />
-<style>
-.module {
-	display: block;
-	margin-bottom: 3px;
-}
+    <title>Alfa</title>
+    <a4j:loadStyle src="jquery-ui-1.8.24/themes/base/jquery.ui.all.css"></a4j:loadStyle>
+    <a4j:loadStyle src="jquery-ui-1.8.24/demos/demos.css"></a4j:loadStyle>
+    <a4j:loadScript src="resource:///jquery.js"/>
+    <a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.core.js"/>
+    <a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.widget.js"/>
+    <a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.mouse.js"/>
+    <a4j:loadScript src="jquery-ui-1.8.24/ui/jquery.ui.sortable.js"/>
+    <style type="text/css">
+        .module {
+            display: block;
+            margin-bottom: 3px;
+        }
 
-.module-full {
-	display: inherit;
-	margin-bottom: 3px;
-}
+        .module-full {
+            display: inherit;
+            margin-bottom: 3px;
+        }
 
-.field-long {
-	width: 145px;
-	margin-bottom: 3px;
-}
+        .field-long {
+            width: 145px;
+            margin-bottom: 3px;
+        }
 
-.column {
-	width: 170px;
-	float: left;
-	padding-bottom: 100px;
-}
+        .column {
+            width: 170px;
+            float: left;
+            padding-bottom: 100px;
+        }
 
-.portlet {
-	margin: 0 1em 1em 0;
-}
+        .portlet {
+            margin: 0 1em 1em 0;
+        }
 
-.portlet-header {
-	margin: 0.3em;
-	padding-bottom: 4px;
-	padding-left: 0.2em;
-	cursor: move;
-}
+        .portlet-header {
+            margin: 0.3em;
+            padding-bottom: 4px;
+            padding-left: 0.2em;
+            cursor: move;
+        }
 
-.portlet-header .ui-icon {
-	float: right;
-}
+        .portlet-header .ui-icon {
+            float: right;
+        }
 
-.portlet-content {
-	padding: 0.4em;
-}
+        .portlet-content {
+            padding: 0.4em;
+        }
 
-.ui-sortable-placeholder {
-	border: 1px dotted black;
-	visibility: visible !important;
-	height: 50px !important;
-}
+        .ui-sortable-placeholder {
+            border: 1px dotted black;
+            visibility: visible !important;
+            height: 50px !important;
+        }
 
-.ui-sortable-placeholder * {
-	visibility: hidden;
-}
-</style>
-<script type="text/javascript">
-	jQuery(function() {
-		jQuery('.column').sortable({
-			connectWith : '.column'
-		});
-		jQuery('.portlet').addClass(
-				'ui-widget ui-widget-content ui-helper-clearfix ui-corner-all')
-				.find('.portlet-header').addClass(
-						"ui-widget-header ui-corner-all").prepend(
-						'<span class="ui-icon ui-icon-minusthick"></span>')
-				.end().find('.portlet-content');
-		jQuery('.portlet-header .ui-icon').click(
-				function() {
-					jQuery(this).toggleClass('ui-icon-minusthick').toggleClass(
-							'ui-icon-plusthick');
-					jQuery(this).parents('.portlet:first').find(
-							'.portlet-content').toggle();
-				});
-		jQuery('.column').disableSelection();
-	});
-</script>
+        .ui-sortable-placeholder * {
+            visibility: hidden;
+        }
+    </style>
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery('.column').sortable({
+                connectWith: '.column'
+            });
+            jQuery('.portlet').addClass(
+                            'ui-widget ui-widget-content ui-helper-clearfix ui-corner-all')
+                    .find('.portlet-header').addClass(
+                            "ui-widget-header ui-corner-all").prepend(
+                            '<span class="ui-icon ui-icon-minusthick"></span>')
+                    .end().find('.portlet-content');
+            jQuery('.portlet-header .ui-icon').click(
+                    function () {
+                        jQuery(this).toggleClass('ui-icon-minusthick').toggleClass(
+                                'ui-icon-plusthick');
+                        jQuery(this).parents('.portlet:first').find(
+                                '.portlet-content').toggle();
+                    });
+            jQuery('.column').disableSelection();
+        });
+    </script>
 </head>
 <body style="background-color: gray">
-	<f:view>
-		<div class="demo">
-			<ui:repeat var="widget" value="#{widgetService.widgetList}">
-				<div class="column">
-					<div class="portlet">
-						<div class="portlet-header" id="#{widget.widgetid}">#{widget.label}</div>
-						<div class="portlet-content">
-							<alfa:widget mode="SIMPLE" />
-							<a4j:commandLink target="windowName"
-								onclick="window.open('jquery_view_widget.jsf?widgetId=#{widget.widgetid}','myWindowName');"
-								value="Отчёт" />
-						</div>
-					</div>
-				</div>
-			</ui:repeat>
-		</div>
-	</f:view>
+<div class="demo">
+    <ui:repeat var="widget" value="#{widgetService.widgetList}">
+        <div class="column">
+            <div class="portlet">
+                <div class="portlet-header" id="#{widget.widgetid}">#{widget.label}</div>
+                <div class="portlet-content">
+                    <ui:repeat var="parametVar" value="#{widget.params.param}">
+                        <h:panelGroup rendered="#{parametVar.mode =='SIMPLE'}">
+                            <alfa:widgetField paramet="#{parametVar}"></alfa:widgetField>
+                        </h:panelGroup>
+                    </ui:repeat>
+
+
+                    <h:commandButton value="Полный режим" id="full_#{status}">
+                        <rich:componentControl for="mp_#{status}" attachTo="full_#{status}"
+                                               operation="show" event="onclick"/>
+                    </h:commandButton>
+                    <rich:modalPanel id="mp_#{status}" width="350">
+                        <f:facet name="header">
+                            <h:panelGroup>
+                                <h:outputText value="Полный режим редактирования '#{widget.label}'"></h:outputText>
+                            </h:panelGroup>
+                        </f:facet>
+                        <f:facet name="controls">
+                            <h:panelGroup>
+                                <h:graphicImage value="css/images/close.png" styleClass="hidelink"
+                                                id="hidelink_#{status}"/>
+                                <rich:componentControl for="mp_#{status}"
+                                                       attachTo="hidelink_#{status}" operation="hide" event="onclick"/>
+                            </h:panelGroup>
+                        </f:facet>
+                        <a4j:form ajaxSubmit="true">
+                            <ui:repeat var="paramet" value="#{inputFields}">
+				<span class="module-full"> <ui:repeat var="parametVar1" value="#{widget.params.param}">
+                    <alfa:widgetField paramet="#{parametVar1}"></alfa:widgetField>
+                </ui:repeat>
+				</span>
+                            </ui:repeat>
+                            <h:commandButton value="Сохранить данные"/>
+                        </a4j:form>
+                    </rich:modalPanel>
+
+                    <a4j:commandLink target="windowName"
+                                     onclick="window.open('jquery_view_widget.jsf?widgetId=#{widget.widgetid}','myWindowName');"
+                                     value="Отчёт"/>
+                </div>
+            </div>
+        </div>
+    </ui:repeat>
+</div>
 </body>
 </html>
