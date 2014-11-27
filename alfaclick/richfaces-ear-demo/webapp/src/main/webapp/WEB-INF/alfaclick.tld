@@ -1,21 +1,31 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<taglib xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-jsptaglibrary_2_1.xsd"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	version="2.1">
-	<display-name>Alfa Click Tag Lib</display-name>
-	<tlib-version>1.0</tlib-version>
-	<short-name>AlfaLib</short-name>
-	<tag>
-		<name>widget</name>
-		<tag-class>com.alfa.click.tag.taglib.FormTag</tag-class>
-		<body-content>empty</body-content>
-		<!-- Script attributes -->
-		<attribute>
-			<name>mode</name>
-			<required>true</required>
-			<deferred-value>
-				<type>com.alfa.click.webservice.server.ModeType</type>
-			</deferred-value>
-		</attribute>
-	</tag>
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<taglib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+    <display-name>Alfa Click Tag Lib</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>AlfaLib</short-name>
+    <uri>http://alfa.click.ru/taglib</uri>
+    <tag>
+        <name>widget</name>
+        <tag-class>com.alfa.click.tag.taglib.FormTag</tag-class>
+        <body-content>empty</body-content>
+        <!-- Script attributes -->
+        <attribute>
+            <name>mode</name>
+            <required>true</required>
+            <deferred-value>
+                <type>java.lang.String</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <name>binding</name>
+            <required>false</required>
+            <deferred-value>
+                <type>
+                    javax.faces.component.UIComponent
+                </type>
+            </deferred-value>
+        </attribute>
+    </tag>
 </taglib>

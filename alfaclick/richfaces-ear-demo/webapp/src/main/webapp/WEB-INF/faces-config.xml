@@ -1,132 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
-	version="1.2">
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+              version="1.2">
+    <component>
+        <component-type>com.alfa.click.tag.FormComponent</component-type>
+        <component-class>com.alfa.click.tag.components.FormComponent</component-class>
+        <property>
+            <description>
+                Mode
+            </description>
+            <property-name>mode</property-name>
+            <property-class>java.lang.String</property-class>
+        </property>
+        <!--
+                <component-extension>
+                    <component-family>com.alfa.click.widget.Form</component-family>
+                    <renderer-type>com.alfa.click.tag.FormRenderer</renderer-type>
+                </component-extension>
+        -->
+    </component>
 
-	<!-- <lifecycle> <phase-listener>nl.amis.jsf.ResourceServerPhaseListener</phase-listener> 
-		</lifecycle> -->
+    <render-kit>
+        <renderer>
+            <description>
+                Renderer for a form component.
+            </description>
+            <component-family>com.alfa.click.widget.Form</component-family>
+            <renderer-type>com.alfa.click.tag.FormRenderer</renderer-type>
+            <renderer-class>com.alfa.click.tag.renderers.FormRenderer</renderer-class>
+        </renderer>
+    </render-kit>
 
-	<component>
-		<component-type>com.alfa.click.component.UIWidgetPanelComponent</component-type>
-		<component-class>com.alfa.click.component.WidgetPanelComponent</component-class>
-		<!-- <property> <property-name>mode</property-name> <property-class>java.lang.String</property-class> 
-			<default-value>SIMPLE</default-value> <property-extension> <property-metadata> 
-			<preferred>true</preferred> <attribute-values>SIMPLE FULL</attribute-values> 
-			</property-metadata> </property-extension> </property> <property> <property-name>widget</property-name> 
-			<property-class>com.alfa.click.webservice.server.Widget</property-class> 
-			</property> -->
-	</component>
-	<component>
-		<component-type>Form</component-type>
-		<component-class>com.alfa.click.tag.components.FormComponent</component-class>
-		<property>
-			<description>
-				Mode
-			</description>
-			<property-name>mode</property-name>
-			<property-class>com.alfa.click.webservice.server.ModeType</property-class>
-		</property>
-		<component-extension>
-			<component-family>Form</component-family>
-			<renderer-type>FormString</renderer-type>
-		</component-extension>
-	</component>
+    <managed-bean>
+        <managed-bean-name>webService</managed-bean-name>
+        <managed-bean-class>com.alfa.click.service.WebServiceFacade</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>widgetService</managed-bean-name>
+        <managed-bean-class>com.alfa.click.service.WidgetService</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>webService</property-name>
+            <value>#{webService}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>widgetView</managed-bean-name>
+        <managed-bean-class>com.alfa.click.service.WidgetController</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>widgetService</property-name>
+            <value>#{widgetService}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>widgetId</property-name>
+            <value>#{param.widgetId}</value>
+        </managed-property>
+    </managed-bean>
+    <application>
+        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+    </application>
 
-	<!-- <render-kit> <renderer> <component-family>nl.amis.Shuffler</component-family> 
-		<renderer-type>nl.amis.jsf.ShufflerRenderer</renderer-type> <renderer-class>nl.amis.jsf.shuffler.ShufflerRenderer</renderer-class> 
-		</renderer> </render-kit> -->
-
-	<render-kit>
-
-		<renderer>
-			<description>
-        Renderer for a components.components.MapComponent component.
-      </description>
-			<component-family>Form</component-family>
-			<renderer-type>FormString</renderer-type>
-			<renderer-class>com.alfa.click.tag.renderers.FormRenderer</renderer-class>
-
-			<!-- <attribute> <description> CSS style class to use when rendering this 
-				component. </description> <attribute-name>styleClass</attribute-name> <attribute-class>java.lang.String</attribute-class> 
-				</attribute> -->
-		</renderer>
-	</render-kit>
-
-
-
-<!-- 	<application>
-		<message-bundle>ValidationMessages</message-bundle>
-		<message-bundle>resources.application</message-bundle>
-		<locale-config>
-			<default-locale>en</default-locale>
-		</locale-config>
-	</application>
- -->
-
-	<managed-bean>
-		<managed-bean-name>webService</managed-bean-name>
-		<managed-bean-class>com.alfa.click.service.WebServiceFacade</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>widgetService</managed-bean-name>
-		<managed-bean-class>com.alfa.click.service.WidgetService</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-		<managed-property>
-			<property-name>webService</property-name>
-			<value>#{webService}</value>
-		</managed-property>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>widgetView</managed-bean-name>
-		<managed-bean-class>com.alfa.click.service.WidgetController</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-		<managed-property>
-			<property-name>widgetService</property-name>
-			<value>#{widgetService}</value>
-		</managed-property>
-		<managed-property>
-			<property-name>widgetId</property-name>
-			<value>#{param.widgetId}</value>
-		</managed-property>
-	</managed-bean>
-	<application>
-		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
-	</application>
-
-	<!-- <application> <message-bundle> <base-name>com.mycompany.messages</base-name> 
-		<var>messages</var> </message-bundle> </application> -->
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>dashboard</from-outcome>
-			<to-view-id>/pages/dashboard.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>page2</from-outcome>
-			<to-view-id>/page2.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>index1</from-outcome>
-			<to-view-id>/index1.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>mainView</from-outcome>
-			<to-view-id>/mainView.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>jqueryDashboard</from-outcome>
-			<to-view-id>/jquery_widget.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>report</from-outcome>
-			<to-view-id>/jquery_view_widget.xhtml</to-view-id>
-		</navigation-case>
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <to-view-id>/pages/dashboard.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>page2</from-outcome>
+            <to-view-id>/page2.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index1</from-outcome>
+            <to-view-id>/index1.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>mainView</from-outcome>
+            <to-view-id>/mainView.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>jqueryDashboard</from-outcome>
+            <to-view-id>/jquery_widget.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>report</from-outcome>
+            <to-view-id>/jquery_view_widget.xhtml</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>widgets</from-outcome>
             <to-view-id>/widgets.xhtml</to-view-id>
         </navigation-case>
-	</navigation-rule>
+    </navigation-rule>
 </faces-config>
