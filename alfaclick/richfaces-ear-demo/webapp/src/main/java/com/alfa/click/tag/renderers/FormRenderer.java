@@ -86,6 +86,9 @@ public class FormRenderer extends Renderer {
         // StringBuffer sb = null;
 
         writer.startElement("div", form);
+        writer.startElement("h1", form);
+        writer.write(form.getMode().name());
+        writer.endElement("h1");
         // writer.writeAttribute("alt", iarea.getAlt(), "alt");
         // writer.writeAttribute("coords", iarea.getCoords(), "coords");
         // writer.writeAttribute("shape", iarea.getShape(), "shape");
@@ -152,5 +155,4 @@ public class FormRenderer extends Renderer {
     // return (value);
     // }
     // }
-
 }

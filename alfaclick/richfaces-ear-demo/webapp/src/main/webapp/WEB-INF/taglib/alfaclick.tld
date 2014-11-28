@@ -7,24 +7,15 @@
     <short-name>AlfaLib</short-name>
     <uri>http://alfa.click.ru/taglib</uri>
     <tag>
-        <name>widget</name>
+        <name>field</name>
         <tag-class>com.alfa.click.tag.taglib.FormTag</tag-class>
         <body-content>empty</body-content>
-        <!-- Script attributes -->
         <attribute>
             <name>mode</name>
-            <required>true</required>
-            <deferred-value>
-                <type>java.lang.String</type>
-            </deferred-value>
-        </attribute>
-        <attribute>
-            <name>binding</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
             <deferred-value>
-                <type>
-                    javax.faces.component.UIComponent
-                </type>
+                <type>com.alfa.click.webservice.server.ModeType</type>
             </deferred-value>
         </attribute>
     </tag>

@@ -18,7 +18,7 @@
     </context-param>
     <context-param>
         <param-name>facelets.LIBRARIES</param-name>
-        <param-value>/WEB-INF/alfaclick.facelet.xml</param-value>
+        <param-value>/WEB-INF/taglib/alfaclick.taglib.xml</param-value>
     </context-param>
     <context-param>
         <param-name>com.sun.faces.validateXml</param-name>
@@ -72,7 +72,7 @@
     <jsp-config>
         <taglib>
             <taglib-uri>http://alfa.click.ru/taglib</taglib-uri>
-            <taglib-location>/WEB-INF/alfaclick.tld</taglib-location>
+            <taglib-location>/WEB-INF/taglib/alfaclick.tld</taglib-location>
         </taglib>
     </jsp-config>
 </web-app>
