@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+
+	<component>
+		<component-type>com.alfa.click.tag.FormComponent</component-type>
+		<component-class>com.alfa.click.tag.components.FormComponent</component-class>
+		<property>
+			<description>
+                Mode
+            </description>
+			<property-name>mode</property-name>
+			<property-class>java.lang.String</property-class>
+		</property>
+		<!-- <component-extension> <component-family>com.alfa.click.widget.Form</component-family> 
+			<renderer-type>com.alfa.click.tag.FormRenderer</renderer-type> </component-extension> -->
+	</component>
+
+	<render-kit>
+		<renderer>
+			<description>
+                Renderer for a form component.
+            </description>
+			<component-family>com.alfa.click.widget.Form</component-family>
+			<renderer-type>com.alfa.click.tag.FormRenderer</renderer-type>
+			<renderer-class>com.alfa.click.tag.renderers.FormRenderer</renderer-class>
+		</renderer>
+	</render-kit>
+
+
+	<navigation-rule>
+		<from-view-id>/index.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>next</from-outcome>
+			<to-view-id>/next.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
+
