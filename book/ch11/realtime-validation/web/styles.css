@@ -1,0 +1,22 @@
+.banner { 
+   background: #ddd; 
+   border: thin solid darkgray; 
+   width: 95%; 
+   padding: 10px; 
+}
+
+.bannerText { 
+   font-size: 1.5em; 
+}
+
+.coerce { 
+   font-size: 1.3em; font-style: italic; 
+}
+
+.errors { 
+   font-size: 1.25em; font-style: italic; display: none; 
+}
+
+.inlineErrors { 
+   font-style: italic; color: red; 
+}

@@ -1,0 +1,52 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                 xmlns:h="http://java.sun.com/jsf/html"
+                 xmlns:c="http://java.sun.com/jstl/core">
+
+    <form jsfc="h:form" id="login">
+      <span jsfc="h:outputText" value="#{msgs.loginHeading}" class="heading"/>
+      <p><table cellpadding="2px;">
+          <tr>
+              <td>
+                  <label for="name"
+                       class="label"
+                        jsfc="h:outputLabel">
+                      #{msgs.namePrompt}
+                  </label>
+              </td>
+              <td>
+                  <input type="text"
+                         jsfc="h:inputText"
+                           id="name"
+                        value="#{user.name}"
+                        style="background: #ffa"/>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <label for="password"
+                         class="label"
+                         jsfc="h:outputLabel">
+                      #{msgs.passwordPrompt}
+                  </label>
+              </td>
+              <td>
+                  <input type="password"
+                         jsfc="h:inputSecret"
+                           id="password"
+                        value="#{user.password}"
+                         size="8"
+                        class="input"/>
+              </td>
+          </tr>
+          <tr>
+              <td> </td>
+              <td>
+                  <input type="submit"
+                         jsfc="h:commandButton"
+                        value="#{msgs.loginButtonText}"
+                       action="login"/>
+              </td>
+          </tr>
+      </table></p>
+    </form>
+</ui:composition>

@@ -1,0 +1,15 @@
+.banner { 
+   background: #ddd; 
+   border: thin solid darkgray; 
+   width: 95%; 
+   padding: 10px; 
+}
+
+.bannerText { 
+   font-size: 1.5em; 
+}
+
+.heading { 
+   font-size: 1.3em; 
+   font-style: italic; 
+}

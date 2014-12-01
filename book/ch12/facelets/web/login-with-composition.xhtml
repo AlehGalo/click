@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:debug="http://corejsf/facelets/debug">
+    <body>
+        <ui:composition template="/layout.xhtml">
+            <!-- Header -->
+            <ui:define name="header">
+                <img src="images/facelets.jpg"/>
+            </ui:define>
+
+            <!-- Menu -->
+            <ui:define name="menu">
+                <img src="images/whatisit.jpg"/>
+                <img src="images/demos.jpg"/>
+                <img src="images/downloads.jpg"/>
+                <img src="images/bestpractices.jpg"/>
+            </ui:define>
+
+            <!-- Content -->            
+            <ui:define name="content">
+                <ui:include src="login-composition.xhtml"/>
+                <debug:headers/>
+             </ui:define>
+        </ui:composition>
+    </body>
+</html>

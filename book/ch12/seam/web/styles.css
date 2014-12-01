@@ -1,0 +1,29 @@
+.heading {
+    background: #eee;
+    border-left: thin solid #aaa;
+    border-bottom: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 650px;
+}
+.headingText {
+    font-size: 1.3em;
+    font-style: italic;
+}
+.contacts {
+    background: #eee;
+    border-left: thin solid #aaa;
+    border-bottom: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    padding: 5px;
+}
+.contactsEvenRow {
+    background: #ddd;
+}
+.contactsOddRow {
+    background: #eee;
+}

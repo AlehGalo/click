@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE dialogs PUBLIC
+  "-//Apache Software Foundation//DTD Shale Dialog Configuration 1.0//EN"
+  "http://struts.apache.org/dtds/shale-dialog-config-1_0.dtd">
+
+<dialogs>
+  <dialog name="Wire Transfer Dialog"
+         start="Setup">
+
+     <action name="Setup"
+           method="#{dialogLauncher.setupWireTransferDialog}">
+         <transition outcome="success"
+                      target="Bank Information"/>
+     </action>
+
+     <view name="Bank Information"
+         viewId="/billpay/payment/wireTransfer/wizard.jsp">
+         <transition outcome="next"
+                      target="Account Information"/>
+         <transition outcome="cancel"
+                      target="Exit"/>
+     </view>
+
+      <view name="Account Information"
+          viewId="/billpay/payment/wireTransfer/wizard.jsp">
+         <transition outcome="previous"
+                      target="Bank Information"/>
+         <transition outcome="next"
+                      target="Account Contact"/>
+          <transition outcome="cancel"
+                       target="Exit"/>
+      </view>
+
+     <view name="Account Contact"
+         viewId="/billpay/payment/wireTransfer/wizard.jsp">
+         <transition outcome="previous"
+                      target="Account Information"/>
+         <transition outcome="next"
+                      target="Summary"/>
+         <transition outcome="cancel"
+                      target="Exit"/>
+     </view>
+
+     <view name="Summary"
+         viewId="/billpay/payment/wireTransfer/wizard.jsp">
+         <transition outcome="previous"
+                      target="Account Contact"/>
+         <transition outcome="finish"
+                      target="Finish"/>
+         <transition outcome="cancel"
+                      target="Exit"/>
+     </view>
+
+     <action name="Finish"
+           method="#{dialog.data.finish}">
+         <transition outcome="success"
+                      target="Exit"/>
+     </action>
+
+     <end name="Exit"/>
+  </dialog>
+</dialogs>

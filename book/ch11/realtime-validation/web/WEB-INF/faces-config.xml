@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+    <application>
+       <resource-bundle>
+          <base-name>com.corejsf.messages</base-name>
+          <var>msgs</var>
+       </resource-bundle>
+    </application>
+
+    <lifecycle>
+        <phase-listener>com.corejsf.AjaxPhaseListener</phase-listener>
+    </lifecycle>
+
+    <validator>
+        <validator-id>com.corejsf.ZipCodeValidator</validator-id>
+        <validator-class>com.corejsf.ZipCodeValidator</validator-class>
+    </validator>
+
+    <managed-bean>
+        <managed-bean-name>bb</managed-bean-name>
+        <managed-bean-class>com.corejsf.BackingBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>showBackingBean</from-outcome>
+            <to-view-id>/showBackingBean.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

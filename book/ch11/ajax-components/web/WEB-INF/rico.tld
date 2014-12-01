@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+   <tlib-version>0.03</tlib-version>
+   <jsp-version>1.2</jsp-version>
+   <short-name>Rico</short-name>
+   <uri>http://corejsf/rico</uri>
+   <description>Library of Rico Components</description>
+
+   <tag>
+      <name>accordion</name>
+      <tag-class>com.corejsf.rico.AccordionTag</tag-class>
+        <attribute>
+            <name>name</name>
+            <required>yes</required>
+            <description>The name of the DIV that Rico adds behaviour to</description>
+        </attribute>
+
+       <attribute>
+           <name>panelHeight</name>
+           <required>no</required>
+           <description>The height of the display panel</description>
+       </attribute>
+
+       <attribute>
+           <name>styleClass</name>
+           <required>no</required>
+           <description>The CSS style for the accordian's outermost panel</description>
+       </attribute>
+
+       <attribute>
+           <name>panelClass</name>
+           <required>no</required>
+           <description>The CSS style for each of the accordian's panels</description>
+       </attribute>
+
+       <attribute>
+           <name>headerClass</name>
+           <required>no</required>
+           <description>The CSS style for the header of each panel</description>
+       </attribute>
+
+       <attribute>
+           <name>contentClass</name>
+           <required>no</required>
+           <description>The CSS style for each panel's content section</description>
+       </attribute>
+    </tag>
+
+   <tag>
+      <name>accordionPanel</name>
+      <tag-class>com.corejsf.rico.AccordionPanelTag</tag-class>
+        <attribute>
+            <name>heading</name>
+            <required>yes</required>
+            <description>The heading for the panel</description>
+        </attribute>
+
+       <attribute>
+           <name>styleClass</name>
+           <required>no</required>
+           <description>The CSS style for the panel</description>
+       </attribute>
+    </tag>
+</taglib>

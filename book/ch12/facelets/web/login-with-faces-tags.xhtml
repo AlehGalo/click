@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:debug="http://corejsf/facelets/debug">
+
+    <head>
+        <f:loadBundle basename="com.corejsf.messages" var="msgs"/>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+        <title>#{msgs.facesTagsWindowTitle}</title>
+    </head>
+
+    <body>
+        <h:form id="login">
+            <h:panelGrid columns="2" cellpadding="3px">
+                <h:outputLabel for="name"
+                             class="label"
+                             value="#{msgs.namePrompt}"/>
+                <h:inputText type="text"
+                         id="name"
+                      value="#{user.name}"
+                      class="input"/>
+
+                <h:outputLabel for="password"
+                             class="label"
+                             value="#{msgs.passwordPrompt}"/>
+                <h:inputSecret type="password"
+                       id="password"
+                    value="#{user.password}"
+                     size="8"
+                    class="input"/>
+
+                <h:outputText value=""/>
+                <h:commandButton value="#{msgs.loginButtonText}"
+                                action="login"/>
+            </h:panelGrid>
+        </h:form>
+        <p><debug:headers/></p>
+    </body>
+</html>

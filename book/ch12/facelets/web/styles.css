@@ -1,0 +1,37 @@
+.header {
+    background:#eee;
+    padding-top: 15px;
+    height: 50px;
+    text-align: center;
+    border-top: thin solid lightGray;
+    border-left: thin solid lightGray;
+    border-bottom: thin solid darkGray;
+    border-right: thin solid darkGray;
+}
+.heading {
+    font-size: 1.3em;
+    font-style: italic;
+}
+.menu {
+    background:#ddd;
+    position:absolute;
+    width:120px;
+    padding-top: 5px;
+    top:80px;
+    text-align: center;
+    height: 75%;
+    border-top: thin solid lightGray;
+    border-left: thin solid lightGray;
+    border-bottom: thin solid darkGray;
+    border-right: thin solid darkGray;
+}
+.content {
+    margin-left: 125px;
+    padding: 15px;
+}
+.label {
+    font-style: italic;
+}
+.input {
+    background: #ffa;
+}

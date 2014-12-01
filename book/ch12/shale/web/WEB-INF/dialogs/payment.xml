@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE dialogs PUBLIC
+  "-//Apache Software Foundation//DTD Shale Dialog Configuration 1.0//EN"
+  "http://struts.apache.org/dtds/shale-dialog-config-1_0.dtd">
+
+<dialogs>
+  <dialog name="Payment" start="Setup">
+
+	<!-- This transition is applicable to
+	     all states in this dialog -->
+    <transition outcome="cancel" target="Exit"/>
+
+    <action name="Setup"
+          method="#{dialogLauncher.setupPaymentDialog}">
+       <transition outcome="success"
+                    target="Payee Information"/>
+    </action>
+
+	<!-- Payee Information -->
+    <view name="Payee Information"
+	    viewId="/billpay/payment/wizard.jsp">
+      <transition outcome="next"
+		             target="Payment Method"/>
+    </view>
+
+	<!-- Payment Method -->
+    <view name="Payment Method"
+	    viewId="/billpay/payment/wizard.jsp">
+      <transition outcome="previous"
+                   target="Payee Information"/>
+
+      <transition outcome="next"
+                   target="Navigate Based on Transfer Mechanism"/>
+    </view>
+
+    <!-- The following action navigates from the Payment
+         Method page depending upon the payment method
+         that the user selected from a drop-down list.
+         The action simply returns that value. -->
+    <action name="Navigate Based on Transfer Mechanism"
+          method="#{dialog.data.navigateTransfer}">
+       <transition outcome="Wire Transfer"
+                    target="Wire Transfer"/>
+    </action>
+
+    <subdialog name="Wire Transfer"
+         dialogName="Wire Transfer Dialog">
+        <transition outcome="cancel"
+                     target="Payment Method"/>
+        <transition outcome="success"
+                     target="Payment Schedule"/>
+    </subdialog>
+
+    <view name="Payment Schedule"
+	    viewId="/billpay/payment/wizard.jsp">
+      <transition outcome="next"
+		           target="Summary"/>
+
+      <transition outcome="previous"
+		           target="Payment Method"/>
+    </view>
+
+    <view name="Summary"
+	    viewId="/billpay/payment/wizard.jsp">
+	    <transition outcome="previous"
+		             target="Payment Schedule"/>
+	   <transition outcome="finish"
+		             target="Create User"/>
+    </view>
+
+    <action name="Create User"
+	      method="#{dialog.data.finish}">
+	   <transition outcome="finish"
+		            target="Exit"/>
+    </action>
+
+    <end  name="Exit"
+	    viewId="/start.jsp"/>
+  </dialog>
+</dialogs>

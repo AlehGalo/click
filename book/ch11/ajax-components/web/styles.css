@@ -1,0 +1,34 @@
+.banner { background: #ddd; border: thin solid darkgray; width: 95%; padding: 10px; }
+.bannerText { font-size: 1.5em; }
+
+.accordion {
+   background : #ddd;
+   width      : 350px;
+   margin     : 10px;
+}
+
+.accordionPanel {
+    background: yellow;
+}
+
+.accordionPanelHeader {
+   font-size           : 14px;
+   padding             : 2px 3px 2px 3px;
+   border-style        : solid none solid none;
+   border-top-color    : #BDC7E7;
+   border-bottom-color : #182052;
+   border-width        : 1px 0px 1px 0px;
+   border-top-width    : 1px;
+   border-top-style    : solid;
+   font-family         : Arial;
+}
+
+.accordionPanelContent {
+   background       : #ddd;
+   font-size        : 14px;
+   border           : 1px solid #1f669b;
+}
+
+.accordionFiller {
+    padding: 10px;
+}

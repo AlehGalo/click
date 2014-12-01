@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+   <navigation-rule>
+      <from-view-id>/index.jsp</from-view-id>
+         <navigation-case>
+            <to-view-id>/welcome.jsp</to-view-id>
+         </navigation-case>
+   </navigation-rule>
+
+   <component>
+      <description>A tabbed pane</description> 
+      <component-type>com.corejsf.TabbedPane</component-type>
+      <component-class>com.corejsf.UITabbedPane</component-class>
+   </component>
+
+   <render-kit>
+      <renderer>
+         <component-family>javax.faces.Command</component-family>
+         <renderer-type>com.corejsf.TabbedPane</renderer-type>
+         <renderer-class>com.corejsf.TabbedPaneRenderer</renderer-class>
+      </renderer>
+   </render-kit>
+
+   <application>
+      <resource-bundle>
+         <base-name>com.corejsf.messages</base-name>
+         <var>msgs</var>
+      </resource-bundle>
+   </application>
+</faces-config>

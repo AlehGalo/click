@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk">
+
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <f:loadBundle basename="com.corejsf.messages" var="msgs"/>
+
+    <head>
+        <title>Facelets</title>
+
+        <style type="text/css">
+            .greeting { font-size: 1.2em; font-style: italic; }
+        </style>
+    </head>
+
+    <body>
+        <span class="greeting">Welcome, #{user.name}</span>
+        <p>
+            <form jsfc="h:form">
+                <a href="#"
+                   jsfc="h:commandLink"
+                 action="back" 
+                  value="#{msgs.backPrompt}">
+                    <ui:remove>Back...</ui:remove>
+                </a>
+            </form>
+        </p>
+    </body>
+</html>

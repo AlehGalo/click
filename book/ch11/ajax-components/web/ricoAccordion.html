@@ -1,0 +1,48 @@
+<html>
+   <head>
+      <link href="styles.css" rel="stylesheet" type="text/css"/>
+      <script type='text/javascript' src='prototype.js'></script>
+      <script type='text/javascript' src='rico-1.1.2.js'></script>
+      <script type='text/javascript'>
+         function createAccordion() {
+            new Rico.Accordion($("theDiv"));
+         }
+      </script>
+   </head>
+
+   <body onload="createAccordion();">
+      <div id="theDiv" class="accordion">
+         <div class="accordionPanel">
+            <div class="accordionPanelHeader">
+              Fruits
+            </div>
+
+            <div class="accordionPanelContent">
+              <ul>
+                 <li>Oranges</li>
+                 <li>Apples</li>
+                 <li>Watermelon</li>
+                 <li>Kiwi</li>
+              </ul>
+            </div>
+         </div>
+         <div class="accordionPanel">
+            <div class="accordionPanelHeader">
+              Vegetables
+            </div>
+
+            <div class="accordionPanelContent">
+              <ul>
+                 <li>Radishes</li>
+                 <li>Carrots</li>
+                 <li>Spinach</li>
+                 <li>Celery</li>
+              </ul>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+
+
+

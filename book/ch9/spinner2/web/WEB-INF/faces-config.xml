@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+
+   <navigation-rule>
+      <from-view-id>/index.jsp</from-view-id>
+      <navigation-case>
+         <from-outcome>next</from-outcome>
+         <to-view-id>/next.jsp</to-view-id>
+      </navigation-case>
+   </navigation-rule>
+
+   <navigation-rule>
+      <from-view-id>/next.jsp</from-view-id>
+      <navigation-case>
+         <from-outcome>again</from-outcome>
+         <to-view-id>/index.jsp</to-view-id>
+      </navigation-case>
+   </navigation-rule>
+
+   <managed-bean> 
+      <managed-bean-name>cardExpirationDate</managed-bean-name>
+      <managed-bean-class>com.corejsf.CreditCardExpiration</managed-bean-class> 
+      <managed-bean-scope>session</managed-bean-scope> 
+   </managed-bean>
+
+   <component>
+      <component-type>com.corejsf.Spinner</component-type>
+      <component-class>com.corejsf.UISpinner</component-class>
+   </component>
+
+   <render-kit>
+      <renderer>
+         <component-family>javax.faces.Input</component-family>
+         <renderer-type>com.corejsf.Spinner</renderer-type>
+         <renderer-class>com.corejsf.SpinnerRenderer</renderer-class>
+      </renderer>
+   </render-kit>
+
+   <application>
+      <resource-bundle>
+         <base-name>com.corejsf.messages</base-name>
+         <var>msgs</var>
+      </resource-bundle>
+   </application>
+</faces-config>
+

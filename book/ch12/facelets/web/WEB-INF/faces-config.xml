@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+    <!-- from project setup -->
+    <application>
+        <view-handler>
+          com.sun.facelets.FaceletViewHandler
+        </view-handler>
+    </application>
+
+    <managed-bean>
+      <managed-bean-name>user</managed-bean-name>
+      <managed-bean-class>com.corejsf.User</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+      <managed-property>
+        <property-name>name</property-name>
+        <value>Phyllis</value>
+      </managed-property>
+      <managed-property>
+        <property-name>password</property-name>
+        <value>diller</value>
+      </managed-property>
+    </managed-bean>
+
+    <!-- going from guess.xhtml to response.xhtml -->
+    <navigation-rule>
+    <from-view-id>/guess.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/response.xhtml</to-view-id>
+    </navigation-case>
+    </navigation-rule>
+
+    <!-- going from response.xhtml to guess.xhtml -->
+    <navigation-rule>
+    <from-view-id>/response.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>success</from-outcome>
+      <to-view-id>/guess.xhtml</to-view-id>
+    </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+      <navigation-case>
+          <from-outcome>login</from-outcome>
+        <to-view-id>/welcome.xhtml</to-view-id>
+      </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/welcome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>back</from-outcome>
+          <to-view-id>/login-soupedup.xhtml</to-view-id>
+        </navigation-case>
+      </navigation-rule>
+</faces-config>

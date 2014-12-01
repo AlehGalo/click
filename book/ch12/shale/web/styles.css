@@ -1,0 +1,83 @@
+body {
+    background: #eee;
+}
+.wizardButtonPanel   {
+    margin-top: 8px;
+}
+.wizardPanel        {
+    background: #eee;
+    width: 100%;
+    border-left: thin solid #aaa;
+    border-bottom: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    margin-top: 10px;
+}
+.summaryHeadingPanel {
+    background: #ddd;
+    font-size: 1.2em;
+    width: 100%;
+    border-left: thin solid #aaa;
+    border-bottom: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.summaryTitle {
+    background: #ddd;
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: thin solid #aaa;
+    border-left: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    width: 100%;
+}
+.summaryOutput {
+    color: blue;
+    padding-left: 10px;
+}
+.input {
+    background: #eee;
+    border: thin solid #aaf;
+}
+.toolbar {
+    background: #ddd;
+    border-bottom: thin solid #aaa;
+    border-left: thin solid #aaa;
+    border-top: thin solid #ccc;
+    border-right: thin solid #ccc;
+    width: 98%;
+    padding: 5px;
+}
+.content {
+    float: left;
+    padding: 5px;
+    width: 98%;
+}
+.selectedHeading {
+    background: #eee;
+    padding: 3px;
+    border-top: thin solid #777;
+    border-left: thin solid #777;
+    border-right: thin solid #ddd;
+    border-bottom: thin solid #ddd;
+    color: #00F;
+}
+.unselectedHeading {
+    font-style: normal;
+    padding: 5px;
+    color: #444;
+}
+
+.summaryHeadingPanel {
+  width: 98%;
+}
+.summary {
+    padding-bottom: 15px;
+}
