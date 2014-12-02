@@ -9,28 +9,43 @@
 	<component>
 		<component-type>com.alfa.click.tag.FormComponent</component-type>
 		<component-class>com.alfa.click.tag.components.FormComponent</component-class>
-		<property>
-			<description>
-                Mode
-            </description>
-			<property-name>mode</property-name>
-			<property-class>java.lang.String</property-class>
-		</property>
-		<!-- <component-extension> <component-family>com.alfa.click.widget.Form</component-family> 
-			<renderer-type>com.alfa.click.tag.FormRenderer</renderer-type> </component-extension> -->
 	</component>
 
 	<render-kit>
 		<renderer>
-			<description>
-                Renderer for a form component.
-            </description>
 			<component-family>com.alfa.click.widget.Form</component-family>
 			<renderer-type>com.alfa.click.tag.FormRenderer</renderer-type>
 			<renderer-class>com.alfa.click.tag.renderers.FormRenderer</renderer-class>
 		</renderer>
 	</render-kit>
 
+	<managed-bean>
+		<managed-bean-name>webService</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WebServiceFacade</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>widgetService</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WidgetService</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>webService</property-name>
+			<value>#{webService}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>widgetView</managed-bean-name>
+		<managed-bean-class>com.alfa.click.service.WidgetController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>widgetService</property-name>
+			<value>#{widgetService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>widgetId</property-name>
+			<value>#{param.widgetId}</value>
+		</managed-property>
+	</managed-bean>
 
 	<navigation-rule>
 		<from-view-id>/index.jsp</from-view-id>

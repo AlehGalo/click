@@ -3,13 +3,14 @@
  */
 package com.alfa.click.tag.renderers;
 
-import com.alfa.click.tag.components.FormComponent;
+import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
-import java.io.IOException;
+
+import com.alfa.click.tag.components.FormComponent;
 
 /**
  * @author Aleh
@@ -22,7 +23,7 @@ public class FormRenderer extends Renderer {
 	 * <p>
 	 * No decoding is required.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code>for the current request
 	 * @param component
@@ -39,15 +40,15 @@ public class FormRenderer extends Renderer {
 	 * <p>
 	 * No begin encoding is required.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code>for the current request
 	 * @param component
 	 *            <code>UIComponent</code> to be decoded
 	 */
 	@Override
-	public void encodeBegin(final FacesContext context,
-			final UIComponent component) throws IOException {
+	public void encodeBegin(final FacesContext context, final UIComponent component)
+			throws IOException {
 		if ((context == null) || (component == null)) {
 			throw new NullPointerException();
 		}
@@ -57,15 +58,15 @@ public class FormRenderer extends Renderer {
 	 * <p>
 	 * No children encoding is required.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code>for the current request
 	 * @param component
 	 *            <code>UIComponent</code> to be decoded
 	 */
 	@Override
-	public void encodeChildren(final FacesContext context,
-			final UIComponent component) throws IOException {
+	public void encodeChildren(final FacesContext context, final UIComponent component)
+			throws IOException {
 		if ((context == null) || (component == null)) {
 			throw new NullPointerException();
 		}
@@ -75,15 +76,15 @@ public class FormRenderer extends Renderer {
 	 * <p>
 	 * Encode this component.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code>for the current request
 	 * @param component
 	 *            <code>UIComponent</code> to be decoded
 	 */
 	@Override
-	public void encodeEnd(final FacesContext context,
-			final UIComponent component) throws IOException {
+	public void encodeEnd(final FacesContext context, final UIComponent component)
+			throws IOException {
 		if ((context == null) || (component == null)) {
 			throw new NullPointerException();
 		}
@@ -119,6 +120,11 @@ public class FormRenderer extends Renderer {
 		// sb.append("'; document.forms[0].submit()");
 		// writer.writeAttribute("onclick", sb.toString(), "value");
 		writer.endElement("div");
+	}
+
+	@Override
+	public boolean getRendersChildren() {
+		return true;
 	}
 
 	// --------------------------------------------------------- Private Methods

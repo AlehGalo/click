@@ -5,7 +5,6 @@ package com.alfa.click.tag.components;
 
 import java.io.IOException;
 
-import javax.el.ValueExpression;
 import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 
@@ -22,12 +21,6 @@ public class FormComponent extends UIOutput {
 	private ModeType modeType;
 
 	/**
-     *
-     */
-	public FormComponent() {
-	}
-
-	/**
 	 * <p>
 	 * Synthesize and return an {@link } bean for this hotspot, if there is no
 	 * <code>valueRef</code> property on this component.
@@ -35,9 +28,9 @@ public class FormComponent extends UIOutput {
 	 */
 	@Override
 	public Object getValue() {
-		// if (super.getValue() == null) {
-		// setValue(new ImageArea(getAlt(), getCoords(), getShape()));
-		// }
+		if (super.getValue() == null) {
+			setValue(ModeType.SIMPLE);
+		}
 
 		return (super.getValue());
 	}
@@ -48,7 +41,7 @@ public class FormComponent extends UIOutput {
 	 * <p>
 	 * Return the state to be saved for this component.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code> for the current request
 	 */
@@ -64,7 +57,7 @@ public class FormComponent extends UIOutput {
 	 * <p>
 	 * Restore the state for this component.
 	 * </p>
-	 *
+	 * 
 	 * @param context
 	 *            <code>FacesContext</code> for the current request
 	 * @param state
